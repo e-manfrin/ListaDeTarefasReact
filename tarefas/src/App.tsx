@@ -1,6 +1,6 @@
 import * as C from './App.styles';
-import { Item } from "./types/Item";
 import { useState } from 'react';
+import { Item } from "./types/Item";
 import { ListaItem } from './componentes/ListaItem/index'
 import { AddArea } from './componentes/AddArea';
 
@@ -11,15 +11,34 @@ const App = () => {
     {id: 2, nome: 'Comprar Pão', marcado: true},
   ]);
 
+  //Irá receber o nome da minha tarefa essa função
+  //Dentro do parâmetro irei receber o nome da minha tarefa
+
   const adicionar = (novoNome: string) => {
+    //Clono minha lista
+    //Para adicionar um item novo no meu clone
     let novaLista = [...lista];
     novaLista.push({
       id: lista.length + 1,
       nome: novoNome,
       marcado: false
     });
+    //Atuaizei este clone e setei em uma lista nova
     setLista(novaLista);
   }
+
+  //Excluir
+
+  const excluir = (id: number) => {
+    let novaListaExcluir = [...lista];
+
+    console.log(novaListaExcluir.length);
+    let remover = novaListaExcluir.splice(id, 1);
+    console.log(novaListaExcluir.length);
+    alert('Item removido com sucesso');
+    setLista(novaListaExcluir);
+};
+  
 
   return (
     <C.Container>
@@ -29,7 +48,7 @@ const App = () => {
         <AddArea onEnter={adicionar}/>
 
         {lista.map((frase, index) => (
-          <ListaItem key={index} frase={frase}/>
+          <ListaItem key={index} index={index} frase={frase} excluir={excluir} />
         ))}
 
       </C.Area>

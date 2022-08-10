@@ -1,5 +1,5 @@
-import { useState, KeyboardEvent } from 'react';
 import * as C from './styles';
+import { useState, KeyboardEvent } from 'react';
 
 type Props = {
     onEnter: (novoNome: string) => void
@@ -7,7 +7,7 @@ type Props = {
 
 export const AddArea = ({ onEnter }: Props) => {
 
-    const[inputText, setInputText] = useState ('');
+    const[inputText, setInputText] = useState<string> ('');
 
     const finalizadoEscrever = (e: KeyboardEvent) => {
         if(e.code === 'Enter' && inputText !== '') {
@@ -23,7 +23,11 @@ export const AddArea = ({ onEnter }: Props) => {
             <input
                 type="text"
                 placeholder='Adicione uma tarefa'
+                //Tudo que o usuário digitar ficará armazenado no inputText
                 value={inputText}
+                //onChange passará um evento e o setInputText 
+                //fará a modificação => 
+                //O que escrever novo ficará armazenado 
                 onChange={e => setInputText (e.target.value)}
                 onKeyUp={finalizadoEscrever}
             />

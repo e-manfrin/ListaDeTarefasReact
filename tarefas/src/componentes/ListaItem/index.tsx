@@ -4,21 +4,27 @@ import { useState } from 'react';
 
 
 type Props = {
-    frase: Item
+    frase: Item,
+    index: number,
+    excluir: (index: number) => void
 }
 
-export const ListaItem = ({frase} : Props) => {
+export const ListaItem = ({frase, index ,excluir} : Props) => {
 
-    const[marcado, setMarcado] = useState (frase.marcado);
+    const[marcado, setMarcado] = useState<boolean>(frase.marcado);
+
 
     return(
         <C.Container marcado={marcado}>
-            <input 
-            type="checkbox"
-            checked={marcado}
-            onChange= {e => setMarcado(e.target.checked)}
-            />
-            <label>{frase.nome}</label>
+            <div>
+                <input 
+                type="checkbox"
+                checked={marcado}
+                onChange= {e => setMarcado(e.target.checked)}
+                />
+                <label>{frase.nome}</label>
+            </div>
+            <button onClick={(e) => excluir(index)}>Excluir</button>
         </C.Container>
     );
 }
