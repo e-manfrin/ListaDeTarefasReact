@@ -9,6 +9,7 @@ Repositório relativo ao Projeto Lista de Tarefas as tecnologias envolvidas Reac
 <img width="627" alt="lista2" src="https://user-images.githubusercontent.com/79612116/195959425-db0c106b-653c-48e3-9387-864f40ff72f1.PNG">
 <img width="627" alt="lista3" src="https://user-images.githubusercontent.com/79612116/195959447-b0eafd01-8f7e-42b8-8fdb-536e95a52057.PNG">
 <img width="627" alt="lista4" src="https://user-images.githubusercontent.com/79612116/195959468-5e183468-9180-48a3-9a5f-14fac05e94e4.PNG">
+<p>Excluir</p>
 </div>
 
 ## Linkedin
